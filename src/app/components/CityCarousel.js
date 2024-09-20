@@ -177,8 +177,7 @@ const CityCarousel = () => {
                   <div className="p-2">
                     <h3 className="text-center">{item.city.user.location || 'City'}</h3>
                   </div>
-                  <div className="h-1/2 w-[20rem] bg-gray-100 rounded-lg shadow-lg">
-                
+                  
                 </div>
               </>
             ) : (

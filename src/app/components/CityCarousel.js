@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 
 const CityCarousel = () => {
   const [cityData, setCityData] = useState([]);
@@ -63,7 +64,7 @@ const CityCarousel = () => {
     };
 
     fetchCities();
-  }, []);
+  }, [API]);
 
   
   
@@ -91,13 +92,13 @@ const CityCarousel = () => {
     const getRandomOrder = () => Math.random() > 0.5;
 
   return (
-      <div key={id} className="flex gap-2">
+      <div key={id} className="flex gap-2 my-8">
               {item.type === "large" && 
               (<div className="bg-gray-200 relative overflow-hidden rounded-lg h-full w-[20rem]">
-               <img
+               <Image
                   src={item.city.urls.regular}
                   alt={item.city.alt_description || "City Image"}
-                  className="w-full h-full object-fill"
+                  className="w-full h-full object-fill" fill
                 />
                 <div className="absolute bottom-0 left-0 bg-black bg-opacity-50 text-white p-2">
                   <h2 className="text-lg">{item.city.user.location || "City Name"}</h2>
@@ -106,54 +107,104 @@ const CityCarousel = () => {
               }
 
      {(item.type === "text" || item.type === "other" ) && (
-                <div className="flex flex-col gap-2 w-[20rem]">
-                    {getRandomOrder() ? (
-                        <>
-                            <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
-                            <h3 className="text-lg font-semibold">{user?.username}</h3>
-                            <p className="text-sm text-gray-500">{user?.location}</p>
-                            <p className="text-gray-700">{user?.description}</p>
-                            </div>
+                // <div className="flex flex-col gap-2 w-[20rem]">
+                //     {getRandomOrder() ? (
+                //         <>
+                //             <div className={`w-[20rem] h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
+                //             <h3 className="text-lg font-semibold">{user?.username}</h3>
+                //             <p className="text-sm text-gray-500">{user?.location}</p>
+                //             <p className="text-gray-700">{user?.description}</p>
+                //             </div>
                             
-                            <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
-                            <img
-                            src={item.city.urls.small}
-                            alt={item.city.alt_description || "City Image"}
-                            className="w-full h-40 object-fill rounded-t-lg"
-                            />
-                            <div className="p-2">
-                            <h3 className="text-center">
-                            {item.city.user.location || "City"}
-                            </h3>
-                            </div>
-                            </div></>
-                    ) :
-                                        (
-                    <>
+                //             <div className="h-1/2 w-[20rem] bg-gray-100 rounded-lg shadow-lg">
+                //             <img
+                //             src={item.city.urls.small}
+                //             alt={item.city.alt_description || "City Image"}
+                //             className="w-full h-full object-fill rounded-t-lg" fill
+                //             />
+                //             <div className="p-2">
+                //             <h3 className="text-center">
+                //             {item.city.user.location || "City"}
+                //             </h3>
+                //             </div>
+                //             </div></>
+                //     ) :
+                //                         (
+                //     <>
 
-                    <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
-                                <img
-                                src={item.city.urls.small}
-                                alt={item.city.alt_description || "City Image"}
-                                className="w-full h-40 object-fill rounded-t-lg"
-                                />
-                                <div className="p-2">
-                                <h3 className="text-center">
-                                    {item.city.user.location || "City"}
-                                </h3>
-                                </div>
-                            </div>
+                //     <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
+                //                 <img
+                //                 src={item.city.urls.small}
+                //                 alt={item.city.alt_description || "City Image"}
+                //                 className="w-full h-40 object-fill rounded-t-lg"
+                //                 />
+                //                 <div className="p-2">
+                //                 <h3 className="text-center">
+                //                     {item.city.user.location || "City"}
+                //                 </h3>
+                //                 </div>
+                //             </div>
 
 
-                    <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
-                                    <h3 className="text-lg font-semibold">{user?.username}</h3>
-                                    <p className="text-sm text-gray-500">{user?.location}</p>
-                                    <p className="text-gray-700">{user?.description}</p>
-                                </div>
-                    </>
-                                        )}
+                //     <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
+                //                     <h3 className="text-lg font-semibold">{user?.username}</h3>
+                //                     <p className="text-sm text-gray-500">{user?.location}</p>
+                //                     <p className="text-gray-700">{user?.description}</p>
+                //                 </div>
+                //     </>
+                //                         )}
                                 
-                                    </div>
+                //                     </div>
+
+                <div key={id} className="flex flex-col gap-2 w-[20rem]">
+            {getRandomOrder() ? (
+              <>
+                {/* Text Card */}
+                <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
+                  <h3 className="text-lg font-semibold">{user?.username || 'Username'}</h3>
+                  <p className="text-sm text-gray-500">{user?.location || 'Location'}</p>
+                  <p className="text-gray-700">{user?.description || 'Description'}</p>
+                </div>
+                {/* Image Card */}
+                <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
+                  <Image
+                    src={item.city.urls.small}
+                    alt={item.city.alt_description || 'City Image'}
+                    width={320} 
+                    height={200} 
+                    className="w-full h-full object-cover rounded-t-lg"
+                  />
+                  <div className="p-2">
+                    <h3 className="text-center">{item.city.user.location || 'City'}</h3>
+                  </div>
+                  <div className="h-1/2 w-[20rem] bg-gray-100 rounded-lg shadow-lg">
+                
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Image Card */}
+                <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
+                  <Image
+                    src={item.city.urls.small}
+                    alt={item.city.alt_description || 'City Image'}
+                    width={320} 
+                    height={200} 
+                    className="w-full h-full object-cover rounded-t-lg"
+                  />
+                  <div className="p-2">
+                    <h3 className="text-center">{item.city.user.location || 'City'}</h3>
+                  </div>
+                </div>
+                {/* Text Card */}
+                <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
+                  <h3 className="text-lg font-semibold">{user?.username || 'Username'}</h3>
+                  <p className="text-sm text-gray-500">{user?.location || 'Location'}</p>
+                  <p className="text-gray-700">{user?.description || 'Description'}</p>
+                </div>
+              </>
+            )}
+          </div>
                                 )}
                                 </div>
     

@@ -4,7 +4,7 @@ import CityCarousel from "./components/CityCarousel";
 
 export default function Home() {
   return (
-    <div> 
+    <div > 
       <Homepage />
       <CityCarousel />
       

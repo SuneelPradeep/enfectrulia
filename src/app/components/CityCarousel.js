@@ -10,6 +10,7 @@ const CityCarousel = () => {
   const [cityData, setCityData] = useState([]);
   const [mergedData,setMergedData] = useState([])
   const [currentIndex, setCurrentIndex] = useState(0);
+  // console.log('mergedata is',mergedData)
   const userComments = [
     {
       username: "John Doe",
@@ -94,7 +95,7 @@ const CityCarousel = () => {
   return (
       <div key={id} className="flex gap-2 my-8">
               {item.type === "large" && 
-              (<div className="bg-gray-200 relative overflow-hidden rounded-lg h-full w-[20rem]">
+              (<div className="bg-gray-200 relative  rounded-lg h-full w-[20rem]">
                <Image
                   src={item.city.urls.regular}
                   alt={item.city.alt_description || "City Image"}
@@ -119,7 +120,7 @@ const CityCarousel = () => {
                   <p className="text-gray-700">{user?.description || 'Description'}</p>
                 </div>
                 {/* Image Card */}
-                <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
+                <div className="relative h-1/2 bg-gray-100 rounded-lg shadow-lg">
                   <Image
                     src={item.city.urls.small}
                     alt={item.city.alt_description || 'City Image'}
@@ -127,16 +128,16 @@ const CityCarousel = () => {
                     height={200} 
                     className="w-full h-full object-cover rounded-t-lg"
                   />
-                  <div className="p-2">
-                    <h3 className="text-center">{item.city.user.location || 'City'}</h3>
-                  </div>
+                  <div className="absolute  bottom-0 left-0 bg-black bg-opacity-50 text-white p-2">
+                  <h2 className="text-lg">{item.city.user.location || "City Name"}</h2>
+                </div>
                   
                 </div>
               </>
             ) : (
               <>
                 {/* Image Card */}
-                <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
+                <div className="relative h-1/2 bg-gray-100 rounded-lg shadow-lg">
                   <Image
                     src={item.city.urls.small}
                     alt={item.city.alt_description || 'City Image'}
@@ -144,9 +145,9 @@ const CityCarousel = () => {
                     height={200} 
                     className="w-full h-full object-cover rounded-t-lg"
                   />
-                  <div className="p-2">
-                    <h3 className="text-center">{item.city.user.location || 'City'}</h3>
-                  </div>
+                   <div className="absolute  bottom-0 left-0 bg-black bg-opacity-50 text-white p-2">
+                  <h2 className="text-lg">{item.city.user.location || "City Name"}</h2>
+                </div>
                 </div>
                 {/* Text Card */}
                 <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>

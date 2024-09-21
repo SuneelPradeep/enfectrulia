@@ -1,7 +1,8 @@
 
 "use client"; 
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaCarAlt, FaSearch } from "react-icons/fa";
+import { TiLocationArrowOutline } from "react-icons/ti";
 
 const Homepage = () => {
   const [activeOption, setActiveOption] = useState("Buy");
@@ -72,11 +73,11 @@ const Homepage = () => {
 
         {searchFocused && (
           <div className="absolute bg-white w-full mt-2 p-2 rounded shadow-lg">
-            <div className="py-1 px-2 cursor-pointer hover:bg-gray-200">
-              Current Location
+            <div className="flex gap-2 py-1 px-2 cursor-pointer hover:bg-gray-200 text-teal-700">
+            <TiLocationArrowOutline /> Current Location
             </div>
-            <div className="py-1 px-2 cursor-pointer hover:bg-gray-200">
-              Search by commute name
+            <div className="flex gap-2 py-1 px-2 cursor-pointer hover:bg-gray-200 text-teal-700">
+            <FaCarAlt /> Search by commute name
             </div>
           </div>
         )}

@@ -21,7 +21,8 @@ const Nav = () => {
       <div className="flex gap-4 items-center">
         <Image
           alt="logo"
-          src="https://www.zillowstatic.com/bedrock/app/uploads/sites/19/2019/06/2019_Trulia_Logo_RGB_Black-e06237-500x262.jpg"
+          //src="https://www.zillowstatic.com/bedrock/app/uploads/sites/19/2019/06/2019_Trulia_Logo_RGB_Black-e06237-500x262.jpg"
+          src="/trulia.jpg"
           width={100}
           height={40}
         />

@@ -82,7 +82,7 @@ const CityCarousel = () => {
   };
   return (
 
-<div className=" relative overflow-hidden ">
+<div className=" relative overflow-hidden w-full ">
 <div className="flex flex-nowrap gap-2 mt-2" style={{ transform: `translateX(-${currentIndex * 20}%)` }}>
   {mergedData.map((item, id) => {
 
@@ -107,54 +107,7 @@ const CityCarousel = () => {
               }
 
      {(item.type === "text" || item.type === "other" ) && (
-                // <div className="flex flex-col gap-2 w-[20rem]">
-                //     {getRandomOrder() ? (
-                //         <>
-                //             <div className={`w-[20rem] h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
-                //             <h3 className="text-lg font-semibold">{user?.username}</h3>
-                //             <p className="text-sm text-gray-500">{user?.location}</p>
-                //             <p className="text-gray-700">{user?.description}</p>
-                //             </div>
-                            
-                //             <div className="h-1/2 w-[20rem] bg-gray-100 rounded-lg shadow-lg">
-                //             <img
-                //             src={item.city.urls.small}
-                //             alt={item.city.alt_description || "City Image"}
-                //             className="w-full h-full object-fill rounded-t-lg" fill
-                //             />
-                //             <div className="p-2">
-                //             <h3 className="text-center">
-                //             {item.city.user.location || "City"}
-                //             </h3>
-                //             </div>
-                //             </div></>
-                //     ) :
-                //                         (
-                //     <>
-
-                //     <div className="h-1/2 bg-gray-100 rounded-lg shadow-lg">
-                //                 <img
-                //                 src={item.city.urls.small}
-                //                 alt={item.city.alt_description || "City Image"}
-                //                 className="w-full h-40 object-fill rounded-t-lg"
-                //                 />
-                //                 <div className="p-2">
-                //                 <h3 className="text-center">
-                //                     {item.city.user.location || "City"}
-                //                 </h3>
-                //                 </div>
-                //             </div>
-
-
-                //     <div className={`h-1/2 ${randomBgColor} p-4 rounded-lg shadow-lg`}>
-                //                     <h3 className="text-lg font-semibold">{user?.username}</h3>
-                //                     <p className="text-sm text-gray-500">{user?.location}</p>
-                //                     <p className="text-gray-700">{user?.description}</p>
-                //                 </div>
-                //     </>
-                //                         )}
-                                
-                //                     </div>
+                
 
                 <div key={id} className="flex flex-col gap-2 w-[20rem]">
             {getRandomOrder() ? (

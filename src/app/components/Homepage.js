@@ -32,7 +32,7 @@ const Homepage = () => {
       <h1 className="text-5xl font-bold text-white mb-6 text-center">
         <span>Discover a place</span>
         <br />
-        <span>you`&apos;`ll love to live</span>
+        <span>you&apos;ll love to live</span>
       </h1>
 
       <div className="flex space-x-4 mb-6 rounded-lg bg-opacity-50 bg-black">
